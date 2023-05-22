@@ -1,19 +1,17 @@
 // importa tudo que tiver que ser importado do express para nossa aplicação
 import express from 'express';
 
+//importa as rotas de Routes
+import {router} from './routes';
+
 //instância básica do servidor
 const server = express();
 
+//Resolve o problema para receber dados na Rota v1/auth
+server.use(express.json());
 
 
-
-//Rota GET/v1 - Rota que retorna uma mensagem padrão de Boas Vindas
-server.get('/v1', (req, res)=> {
-  return res.send('Bem vindo a API GeoPoly!');
-});
-
-
-
+server.use(router);
 
 //exportando o servidor
 export { server};
