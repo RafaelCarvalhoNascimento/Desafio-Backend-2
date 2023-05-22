@@ -2,7 +2,7 @@
 import express from 'express';
 
 //importa as rotas de Routes
-import {router} from './routes';
+import router from './routes';
 
 //instância básica do servidor
 const server = express();
