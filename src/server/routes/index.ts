@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { authRouter } from './authRoutes';
-import { placesRouter } from './placesRoutes';
+import placesRouter from './placesRoutes';
 
 const router = Router();
 
@@ -10,9 +10,8 @@ router.get('/v1', (_, res) => {
 });
 
 router.use('/v1/auth', authRouter);
-
 router.use('/v2/places', placesRouter);
-
-router.use('/v2/places/id', placesRouter);
+router.use('/v2/places/:id', placesRouter);
+router.use('/v3/places', placesRouter);
 
 export default router;
