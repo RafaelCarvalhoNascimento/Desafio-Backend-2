@@ -2,7 +2,8 @@
 import express from 'express';
 
 //importa as rotas de Routes
-import router from './routes';
+import { authRouter } from './routes/authRoutes';
+import placesRouter from './routes';
 
 //instância básica do servidor
 const server = express();
@@ -11,7 +12,8 @@ const server = express();
 server.use(express.json());
 
 
-server.use(router);
+server.use(authRouter);
+server.use(placesRouter);
 
 //exportando o servidor
 export { server};
